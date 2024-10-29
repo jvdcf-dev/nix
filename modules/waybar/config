@@ -1,0 +1,179 @@
+/* ─────────────────────╮ 
+ * Waybar configuration │
+ * ─────────────────────╯
+ * @jvdcf
+ */
+{
+    "layer": "top",     
+    "position": "left", 
+    "width": 75,
+    "fixed-center": false,
+
+    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["tray", "group/system", "group/hardware", "custom/notification"],
+    
+    "group/hardware": {
+        "orientation": "vertical",
+        "modules": [
+            "backlight",
+            "bluetooth",
+            "network",
+            "wireplumber",
+            "battery"
+        ]
+    },
+
+    "group/system": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/system",
+            "cpu",
+            "memory",
+            "temperature",
+            "battery#system"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "resources",
+            "transition-left-to-right": false
+        }
+    },
+
+    "custom/system": {
+        "format": "",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "{usage:3}%",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "{percentage:3}%",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "temperature": {
+        "format": "{temperatureC:3}°",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "battery#system": {
+        "format": "󱐋{power:.2}W",
+        "interval": 5,
+        "tooltip": false,
+        "max-length": 5
+    },
+
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": "{icon}",
+         "format-icons": {
+             "default": ""
+         }
+     },
+
+    "tray": {
+        "icon-size": 22,
+        "spacing": 7,
+        "reverse-direction": true
+    },
+
+    "clock": {
+        "timezone": "Europe/Lisbon",
+        "tooltip-format": "<big>{:%d/%m/%Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d\n%b}",
+        "format": "{:%H\n%M}"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "Brightness:\n{percent}%"
+    },
+
+    "bluetooth": {
+        "format": "{icon}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "",
+        "format-icons": ["", ""],
+        "on-click": "blueberry",
+        "tooltip": true,
+        "tooltip-format": "Bluetooth:\n{status}"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 40,
+            "critical": 20
+        },
+        "interval": 5,
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "Battery: {capacity}% | {power:.2}W\n{timeTo}",
+        "on-click": "kitty -e battop"
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾", "󱄠"]
+        },
+        "on-click": "pavucontrol &",
+        "tooltip": true,
+        "tooltip-format": "Volume:\n{volume}%",
+        "max-volume": 100.0 
+    }, 
+
+    "custom/notification": {
+	      "tooltip": false,
+	      "format": "{icon}",
+	      "format-icons": {
+		        "notification": "<span foreground='red'><sup></sup></span>",
+		        "none": "",
+		        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+		        "dnd-none": "",
+		        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		        "inhibited-none": "",
+		        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		        "dnd-inhibited-none": ""
+	      },
+	      "return-type": "json",
+	      "exec-if": "which swaync-client",
+	      "exec": "swaync-client -swb",
+	      "on-click": "swaync-client -t -sw",
+	      "on-click-right": "swaync-client -d -sw",
+	      "escape": true
+    },
+
+    "network": {
+        "format": "{icon}",
+        "format-ethernet": "",
+        "format-wifi": "",
+        "format-linked": "󰛵",
+        "format-disconnected": "󰲛",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click": "kitty -e nmtui",
+        "on-click-right": "nm-connection-editor",
+        "tooltip": true,
+        "tooltip-format": "Network:\n{ifname}",
+        "tooltip-format-ethernet": "Ethernet:\n{ifname}",
+        "tooltip-format-wifi": "Wi-Fi:\n{essid}",
+        "tooltip-format-disconnected": "Disconnected from the network"
+    }
+}
+

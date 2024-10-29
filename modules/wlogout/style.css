@@ -1,0 +1,81 @@
+/* ────────────────╮ 
+ * Wlogout Styling │
+ * ────────────────╯
+ * @jvdcf
+ * Similar to the stock styling (https://github.com/ArtsyMacaw/wlogout/blob/master/style.css)
+ */
+
+@import "frappe.css";
+
+* {
+  background-image: none;
+  box-shadow: none;
+  font-family: "FiraCode Nerd Font Mono", sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: @text;
+}
+
+window {
+  background-color: rgba(23, 26, 34, 0.95); /* @crust */
+}
+
+button {
+  border-radius: 10;
+  border-style: solid;
+  border-width: 5px;
+  border-color: @base;
+  margin: 1em;
+  background-color: @base;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+
+button:focus,
+button:active,
+button:hover {
+  border-color: @green;
+}
+
+#lock {
+  background-image: image(
+    url("/usr/share/wlogout/icons/lock.png"),
+    url("/usr/local/share/wlogout/icons/lock.png")
+  );
+}
+
+#logout {
+  background-image: image(
+    url("/usr/share/wlogout/icons/logout.png"),
+    url("/usr/local/share/wlogout/icons/logout.png")
+  );
+}
+
+#suspend {
+  background-image: image(
+    url("/usr/share/wlogout/icons/suspend.png"),
+    url("/usr/local/share/wlogout/icons/suspend.png")
+  );
+}
+
+#hibernate {
+  background-image: image(
+    url("/usr/share/wlogout/icons/hibernate.png"),
+    url("/usr/local/share/wlogout/icons/hibernate.png")
+  );
+}
+
+#shutdown {
+  background-image: image(
+    url("/usr/share/wlogout/icons/shutdown.png"),
+    url("/usr/local/share/wlogout/icons/shutdown.png")
+  );
+}
+
+#reboot {
+  background-image: image(
+    url("/usr/share/wlogout/icons/reboot.png"),
+    url("/usr/local/share/wlogout/icons/reboot.png")
+  );
+}

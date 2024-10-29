@@ -1,0 +1,70 @@
+/* ─────────────────────────────────────╮ 
+ * Waybar Catppuccin Frappe Colorscheme │
+ * ─────────────────────────────────────╯
+ * @jvdcf
+ */
+
+@import "frappe.css";
+
+* {
+  font-family: FiraCode Nerd Font Mono;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces,
+#clock,
+#system,
+#hardware,
+#tray,
+#custom-notification {
+  background-color: alpha(@base,0.95);
+  padding: 10px;
+  margin: 10px 0px 10px 10px;
+  border-radius: 10px;
+  color: @text;
+}
+
+#clock {
+  font-size: 25px;
+}
+
+#hardware * {
+  padding: 8px 0px;
+}
+
+.resources * {
+  font-size: 0.7em;
+  font-weight: lighter;
+  padding: 5px 0px;
+}
+
+tooltip {
+  background-color: @base;
+  color: @text;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+tooltip * {
+  font-size: 0.9em;
+}
+
+#workspaces button {
+  font-size: 0.8em;
+  color: @overlay0;
+}
+
+#workspaces button.active {
+  color: @green;
+}
+
+#workspaces button:hover {
+  color: @teal;
+}
+
