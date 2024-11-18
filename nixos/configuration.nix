@@ -10,14 +10,17 @@
       ./hardware-configuration.nix
     ];
 
-  # Alder Lake Graphics Bug~
+  # Alder Lake Graphics Bug
   boot.kernelParams = [ "i915.force_probe=7d55" ];
+
+  # Nix flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "SillyBilly"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -96,8 +99,8 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "jvdcf";
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "jvdcf";
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -111,7 +114,6 @@
     vim
     nh
     git
-  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
