@@ -96,8 +96,8 @@
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "jvdcf";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "jvdcf";
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -108,7 +108,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    nh
+    git
   #  wget
   ];
 
