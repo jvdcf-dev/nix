@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -96,6 +96,14 @@
       kdePackages.kate
     #  thunderbird
     ];
+  };
+
+  # Home Manager
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "jvdcf" = import ../home-manager/home.nix;
+    };
   };
 
   # Enable automatic login for the user.
