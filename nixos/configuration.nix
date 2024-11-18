@@ -16,6 +16,10 @@
   # Nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
