@@ -10,9 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Alder Lake Graphics Bug
-  boot.kernelParams = [ "i915.force_probe=7d55" ];
-
   # Nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -23,6 +20,24 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Plymouth
+  boot.plymouth = {
+    enable = true;
+    theme = "bgrt";
+  };
+  boot.initrd.systemd.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max"; # Set resolution of Plymouth
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "loglevel=3"
+    "rd.udev.log_level=3"
+    "i915.force_probe=7d55"   # Alder Lake bug fix
+    "vt.global_cursor_default=0"
+  ];
+  
+  boot.loader.timeout = 0;  # Don't show generations (bypass by pressing any key)
 
   networking.hostName = "SillyBilly"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
