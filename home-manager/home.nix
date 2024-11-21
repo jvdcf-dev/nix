@@ -17,26 +17,26 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.kitty
-    pkgs.zsh
-    pkgs.fastfetch
-    pkgs.btop
-    pkgs.vscode
-    pkgs.nextcloud-client
-    pkgs.bottles
-    pkgs.firefox
-    pkgs.gnome-calendar
-    pkgs.gnome-clocks
-    pkgs.papers # Gnome document viewer
-    pkgs.nautilus
-    pkgs.kdePackages.kdeconnect-kde
-    pkgs.libreoffice
-    pkgs.neovim
-    pkgs.parsec-bin
-    pkgs.webcord
-    pkgs.wine
-    pkgs.youtube-music
+  home.packages = with pkgs; [
+    kitty
+    zsh
+    fastfetch
+    btop
+    vscode
+    nextcloud-client
+    bottles
+    firefox
+    gnome-calendar
+    gnome-clocks
+    papers # Gnome document viewer
+    nautilus
+    kdePackages.kdeconnect-kde
+    libreoffice
+    neovim
+    parsec-bin
+    webcord
+    wine
+    youtube-music
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
