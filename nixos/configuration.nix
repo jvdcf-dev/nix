@@ -128,8 +128,11 @@
   };
 
   # Enable automatic login for the user.
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "jvdcf";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "jvdcf";
+  # Bugfix for race condition about autologin and SDDM
+  systemd.services.display-manager.wants = [ "systemd-user-sessions.service" "multi-user.target" "network-online.target" ];
+  systemd.services.display-manager.after = [ "systemd-user-sessions.service" "multi-user.target" "network-online.target" ];
 
   # Install firefox.
   programs.firefox.enable = true;
