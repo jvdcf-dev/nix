@@ -108,6 +108,8 @@
     users = {
       "jvdcf" = import ../home-manager/home.nix;
     };
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   # Enable automatic login for the user.
