@@ -39,6 +39,9 @@
   
   boot.loader.timeout = 0;  # Don't show generations (bypass by pressing any key)
 
+  # Wayland Electron Apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   networking.hostName = "SillyBilly"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
