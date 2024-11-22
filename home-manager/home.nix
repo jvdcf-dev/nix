@@ -37,6 +37,9 @@
     webcord
     wine
     youtube-music
+    (nerdfonts.override { fonts = [ "FiraMono" "JetBrainsMono" ]; })
+    texlivePackages.nunito
+    texlivePackages.comfortaa
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
