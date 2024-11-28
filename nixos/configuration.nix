@@ -42,6 +42,12 @@
   # Wayland Electron Apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Asusctl service
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
+
   networking.hostName = "SillyBilly"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -110,14 +116,19 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.zsh.enable = true;
   users.users.jvdcf = {
     isNormalUser = true;
-    description = "Joao Vitor Ferreira";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+    description = "João Vítor Ferreira";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
+  };
+
+  # Docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 
   # Home Manager
@@ -136,9 +147,6 @@
   # Bugfix for race condition about autologin and SDDM
   systemd.services.display-manager.wants = [ "systemd-user-sessions.service" "multi-user.target" "network-online.target" ];
   systemd.services.display-manager.after = [ "systemd-user-sessions.service" "multi-user.target" "network-online.target" ];
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
