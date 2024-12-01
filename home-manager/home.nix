@@ -45,6 +45,7 @@
     (nerdfonts.override { fonts = [ "FiraMono" "JetBrainsMono" ]; })
     texlivePackages.nunito
     texlivePackages.comfortaa
+    direnv
   ];
 
   fonts.fontconfig.enable = true;
