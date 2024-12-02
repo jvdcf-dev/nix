@@ -176,6 +176,9 @@
     gamescopeSession.enable = true;
   };
 
+  # KDE Connect
+  programs.kdeconnect.enable = true;
+
   # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
