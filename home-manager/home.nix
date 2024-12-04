@@ -32,9 +32,9 @@
     firefox
     gnome-calendar
     gnome-clocks
+    gnome-calculator
     papers # Gnome document viewer
     nautilus
-    kdePackages.kdeconnect-kde
     libreoffice
     neovim
     parsec-bin
@@ -42,10 +42,12 @@
     wine
     bottles
     youtube-music
-    (nerdfonts.override { fonts = [ "FiraMono" "JetBrainsMono" ]; })
-    texlivePackages.nunito
-    texlivePackages.comfortaa
     direnv
+    jetbrains-toolbox
+    steam-run
+    rlwrap
+    nixd  # todo: fix wrong package
+    nixfmt-rfc-style
   ];
 
   fonts.fontconfig.enable = true;

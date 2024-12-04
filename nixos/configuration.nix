@@ -82,7 +82,11 @@
 
         RESTORE_THRESHOLDS_ON_BAT = 1;
       };
-};
+  };
+
+  # Nix Store Optimizations
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "02:00" ]; # Every night at 2h
 
   networking.hostName = "SillyBilly"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -205,7 +209,20 @@
     vim
     nh
     git
+    intel-ocl # OpenCL support
+    kdePackages.xwaylandvideobridge
   ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+    texlivePackages.nunito
+    texlivePackages.comfortaa
+  ];
+
+  environment.variables.OCL_ICD_VENDORS = "${pkgs.intel-ocl}/etc/OpenCL/vendors/intel.icd";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
