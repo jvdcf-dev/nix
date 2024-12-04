@@ -72,26 +72,9 @@ zinit snippet OMZP::command-not-found
 # =========================================================================
 alias ls='ls --color'
 
-# Paths 
-# =========================================================================
-export PATH="/usr/bin/flutter/bin:$PATH"
-export PATH="~/.cargo/bin:$PATH"
-export PATH="~/.ghcup/bin:$PATH"
-
 # Autostart programs
 # =========================================================================
 fastfetch --config $HOME/.config/fastfetch/config.jsonc
 
-# Home manager standalone
-source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
-# bun completions
-[ -s "/home/jvdcf/.bun/_bun" ] && source "/home/jvdcf/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# PFL: SICStus
-export PATH="~/Universidade/PFL/bin:$PATH"
-
+# Paths 
+# =========================================================================

@@ -1,8 +1,11 @@
-{ inputs, pkgs, lib, config, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-	home.packages = with pkgs; [
-	  fastfetch
+  home.packages = with pkgs; [
+    fastfetch
   ];
 
   home.file.".config/fastfetch/config.jsonc".source = ./config.jsonc;
