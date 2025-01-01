@@ -4,7 +4,7 @@
 # @jvdcf
 # Dotfiles, applications and envs for only my user are defined here.
 
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 
 {
 
@@ -29,7 +29,6 @@
     btop
     vscode
     nextcloud-client
-    bottles
     firefox
     gnome-calendar
     gnome-clocks
@@ -41,7 +40,6 @@
     parsec-bin
     webcord
     wine
-    bottles
     youtube-music
     direnv
     jetbrains-toolbox
@@ -49,9 +47,11 @@
     rlwrap
     nixd
     nixfmt-rfc-style
-  ];
-
-  fonts.fontconfig.enable = true;
+    texlive.combined.scheme-full  # LaTeX support
+    kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
+  ] ++ (with pkgs-stable; [
+    bottles
+  ]);
 
 
   # ==========================================================================

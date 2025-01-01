@@ -6,6 +6,7 @@
 
 {
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }:
@@ -248,12 +249,16 @@
 
   # Home Manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { 
+      inherit inputs;
+      inherit pkgs-stable;
+    };
     users = {
       "jvdcf" = import ../home-manager/home.nix;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
   };
 
   # Automatic login
