@@ -49,6 +49,7 @@
     nixfmt-rfc-style
     texlive.combined.scheme-full  # LaTeX support
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
+    logseq
   ] ++ (with pkgs-stable; [
     bottles
   ]);

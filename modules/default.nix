@@ -9,6 +9,7 @@
     ./kitty
     ./zsh
     ./ohmyposh
+    ./ghostty
   ];
 
 }
