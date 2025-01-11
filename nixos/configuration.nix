@@ -28,6 +28,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow insecure packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
+
   # Nix Store Optimizations
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "02:00" ]; # Every night at 2h
@@ -154,6 +159,15 @@
     intel-ocl # OpenCL support
     kdePackages.xwaylandvideobridge
   ];
+
+  # RDP Server for desktop sharing
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma6.enable = true;
+
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-wayland";
+  services.xrdp.openFirewall = true;
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -284,7 +298,7 @@
     enable = true;
     image = ../modules/background.jpg;
     polarity = "dark";
-    base16Scheme = {
+    base16Scheme = {  # Catppuccin Frappe Theme
       base00 = "303446"; # base
       base01 = "292c3c"; # mantle
       base02 = "414559"; # surface0
