@@ -4,7 +4,7 @@
 # @jvdcf
 # Dotfiles, applications and envs for only my user are defined here.
 
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, pkgs-stable, pipewire-screenaudio, lib, ... }:
 
 {
 
@@ -29,7 +29,9 @@
     btop
     vscode
     nextcloud-client
-    firefox
+    (firefox.override { nativeMessagingHosts = [ 
+      pipewire-screenaudio.packages.${pkgs.system}.default 
+    ]; })
     gnome-calendar
     gnome-clocks
     gnome-calculator
@@ -54,6 +56,15 @@
     bottles
   ]);
 
+
+  # Remove Home Manager backups
+  # ==========================================================================
+
+  home.file = {
+    "/home/jvdcf/.gtkrc-2.0".force = lib.mkDefault true;
+    "/home/jvdcf/.config/fontconfig/conf.d/10-hm-fonts.conf".force = lib.mkDefault true;
+  };
+    
 
   # ==========================================================================
 
