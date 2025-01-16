@@ -11,13 +11,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=release-24.11";
+    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
   };
 
   outputs =
-    { nixpkgs, nixpkgs-stable,... }@inputs:
+    { nixpkgs, nixpkgs-stable, pipewire-screenaudio,... }@inputs:
     let
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
@@ -28,6 +29,7 @@
           specialArgs = {
             inherit system;
             inherit pkgs-stable;
+            inherit pipewire-screenaudio;
           };
           modules = [
             ./nixos/configuration.nix

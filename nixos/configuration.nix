@@ -7,6 +7,7 @@
 {
   pkgs,
   pkgs-stable,
+  pipewire-screenaudio,
   inputs,
   ...
 }:
@@ -266,6 +267,7 @@
     extraSpecialArgs = { 
       inherit inputs;
       inherit pkgs-stable;
+      inherit pipewire-screenaudio;
     };
     users = {
       "jvdcf" = import ../home-manager/home.nix;
