@@ -161,15 +161,6 @@
     kdePackages.xwaylandvideobridge
   ];
 
-  # RDP Server for desktop sharing
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma6.enable = true;
-
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-wayland";
-  services.xrdp.openFirewall = true;
-
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -204,6 +195,9 @@
   # VirtualBox
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "jvdcf" ];
+
+  # Tailscale VPN
+  services.tailscale.enable = true;
 
 
   # Time zone and locale

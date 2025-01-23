@@ -52,6 +52,7 @@
     texlive.combined.scheme-full  # LaTeX support
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
     anytype
+    vlc
   ] ++ (with pkgs-stable; [
     bottles
   ]);
