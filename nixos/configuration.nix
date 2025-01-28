@@ -154,6 +154,7 @@
   # ==========================================================================
 
   environment.systemPackages = with pkgs; [
+    htop
     vim
     nh
     git

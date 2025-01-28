@@ -51,6 +51,7 @@
     nixfmt-rfc-style
     texlive.combined.scheme-full  # LaTeX support
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
+    kde-rounded-corners
     anytype
     vlc
   ] ++ (with pkgs-stable; [
