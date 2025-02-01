@@ -69,16 +69,19 @@
     pulse.enable = true;
   };
 
-  # Media Codecs
+  # Media Codecs and Graphics Drivers
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      vpl-gpu-rt
       intel-media-driver
       libvdpau-va-gl
     ];
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
+  # SSD settings
+  services.fstrim.enable = true;
 
   # Boot and kernel
   # ==========================================================================
