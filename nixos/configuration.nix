@@ -3,7 +3,6 @@
 # ─────────────────────────╯
 # @jvdcf
 # Every setting, package and service applied to the whole system are defined here.
-
 {
   pkgs,
   pkgs-stable,
@@ -11,7 +10,6 @@
   inputs,
   ...
 }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -37,7 +35,6 @@
   # Nix Store Optimizations
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "02:00" ]; # Every night at 2h
-
 
   # Hardware related services
   # ==========================================================================
@@ -106,13 +103,15 @@
     "vt.global_cursor_default=0"
   ];
 
-  # Don't show nix generations on boot (bypass by pressing any key)
-  boot.loader.timeout = 0; 
+  # Latest Linux kernel, instead of the default LTS
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Don't show nix generations on boot (bypass by pressing any key)
+  boot.loader.timeout = 0;
 
   # Power management for laptops
   # ==========================================================================
-  
+
   services.power-profiles-daemon.enable = false;
   powerManagement.enable = true;
   services.tlp = {
@@ -152,7 +151,6 @@
     enableUserSlices = true;
   };
 
-
   # System packages
   # ==========================================================================
 
@@ -187,7 +185,7 @@
   # Steam
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; 
+    remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
@@ -202,7 +200,6 @@
 
   # Tailscale VPN
   services.tailscale.enable = true;
-
 
   # Time zone and locale
   # ==========================================================================
@@ -224,7 +221,6 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-
   # Windowing System
   # ==========================================================================
 
@@ -244,7 +240,6 @@
   # Configure console keymap
   console.keyMap = "pt-latin1";
 
-
   # Users
   # ==========================================================================
 
@@ -262,7 +257,7 @@
 
   # Home Manager
   home-manager = {
-    extraSpecialArgs = { 
+    extraSpecialArgs = {
       inherit inputs;
       inherit pkgs-stable;
       inherit pipewire-screenaudio;
@@ -298,7 +293,8 @@
     enable = true;
     image = ../modules/background.jpg;
     polarity = "dark";
-    base16Scheme = {  # Catppuccin Frappe Theme
+    base16Scheme = {
+      # Catppuccin Frappe Theme
       base00 = "303446"; # base
       base01 = "292c3c"; # mantle
       base02 = "414559"; # surface0
@@ -318,7 +314,6 @@
     };
   };
 
-
   # Other hot patches
   # ==========================================================================
 
@@ -331,7 +326,6 @@
   # Make OpenCL detectable by applications
   environment.variables.OCL_ICD_VENDORS = "${pkgs.intel-ocl}/etc/OpenCL/vendors/intel.icd";
 
-  
   # ==========================================================================
 
   # This value determines the NixOS release from which the default
@@ -341,5 +335,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
