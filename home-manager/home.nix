@@ -54,6 +54,8 @@
     kde-rounded-corners
     anytype
     vlc
+    gnome-software
+    fragments              # Torrent client
   ] ++ (with pkgs-stable; [
     bottles
   ]);

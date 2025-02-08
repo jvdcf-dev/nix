@@ -161,6 +161,11 @@
     git
     intel-ocl # OpenCL support
     kdePackages.xwaylandvideobridge
+
+    # Smart card utilities
+    pcsclite
+    ccid
+    opensc
   ];
 
   # Fonts
@@ -200,6 +205,12 @@
 
   # Tailscale VPN
   services.tailscale.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = true;
+
+  # Smart card
+  services.pcscd.enable = true;
 
   # Time zone and locale
   # ==========================================================================
