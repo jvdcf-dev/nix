@@ -90,7 +90,7 @@
   # Plymouth
   boot.plymouth = {
     enable = true;
-    # theme = "bgrt";
+    theme = "bgrt";
   };
   boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.consoleMode = "max"; # Set resolution of Plymouth
@@ -302,6 +302,7 @@
 
   stylix = {
     enable = true;
+    targets.plymouth.enable = false;
     image = ../modules/background.jpg;
     polarity = "dark";
     base16Scheme = {
