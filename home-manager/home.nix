@@ -52,6 +52,7 @@
     texlive.combined.scheme-full  # LaTeX support
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
     kde-rounded-corners
+    kdePackages.plasma-browser-integration
     anytype
     vlc
     gnome-software
