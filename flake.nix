@@ -14,7 +14,7 @@
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix?ref=release-24.11";
   };
 
   outputs =

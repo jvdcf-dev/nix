@@ -276,7 +276,6 @@
     users = {
       "jvdcf" = import ../home-manager/home.nix;
     };
-    useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
   };
