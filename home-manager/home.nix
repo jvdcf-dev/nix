@@ -53,12 +53,13 @@
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
     kde-rounded-corners
     kdePackages.plasma-browser-integration
-    anytype
+    vscode-runner          # VSCode workspaces in KDE Runner
     vlc
     gnome-software
     fragments              # Torrent client
   ] ++ (with pkgs-stable; [
     bottles
+    anytype
   ]);
 
 
