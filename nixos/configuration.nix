@@ -212,6 +212,9 @@
   # Smart card
   services.pcscd.enable = true;
 
+  # ADB for connection with Android devices
+  programs.adb.enable = true;
+
   # Time zone and locale
   # ==========================================================================
 
@@ -262,6 +265,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };
