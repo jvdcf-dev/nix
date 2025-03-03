@@ -4,7 +4,7 @@
 # @jvdcf
 # Dotfiles, applications and envs for only my user are defined here.
 
-{ pkgs, pkgs-stable, pipewire-screenaudio, lib, ... }:
+{ pkgs, pkgs-stable, pipewire-screenaudio, lib, inputs, ... }:
 
 {
 
@@ -60,7 +60,9 @@
   ] ++ (with pkgs-stable; [
     bottles
     anytype
-  ]);
+  ]) ++ [
+    inputs.zen-browser.packages."${system}".beta
+  ];
 
 
   # Remove Home Manager backups

@@ -15,6 +15,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix?ref=release-24.11";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -27,6 +29,7 @@
       nixosConfigurations = {
         SillyBilly = nixpkgs.lib.nixosSystem {
           specialArgs = {
+            inherit inputs;
             inherit system;
             inherit pkgs-stable;
             inherit pipewire-screenaudio;

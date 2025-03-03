@@ -73,9 +73,13 @@
       vpl-gpu-rt
       intel-media-driver
       libvdpau-va-gl
+      intel-compute-runtime
     ];
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+
+  # Firmware updates
+  services.fwupd.enable = true;
 
   # SSD settings
   services.fstrim.enable = true;
@@ -155,17 +159,25 @@
   # ==========================================================================
 
   environment.systemPackages = with pkgs; [
-    htop
+    # Kernel
+    linux-firmware
+
+    # Utilities
     vim
     nh
     git
-    intel-ocl # OpenCL support
     kdePackages.xwaylandvideobridge
 
     # Smart card utilities
     pcsclite
     ccid
     opensc
+
+    # Maintenance tools
+    smartmontools
+    htop
+    iotop-c
+    intel-gpu-tools
   ];
 
   # Fonts
