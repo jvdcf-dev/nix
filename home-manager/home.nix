@@ -17,6 +17,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Enable unfree packages
+  nixpkgs.config.allowUnfree = true;
+
 
   # Applications
   # ==========================================================================

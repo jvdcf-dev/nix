@@ -293,6 +293,7 @@
       "jvdcf" = import ../home-manager/home.nix;
     };
     useUserPackages = true;
+    useGlobalPkgs = true;   # E.g. enable unfree packages
     backupFileExtension = "backup";
   };
 
