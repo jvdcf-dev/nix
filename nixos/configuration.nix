@@ -69,6 +69,7 @@
   # Media Codecs and Graphics Drivers
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       vpl-gpu-rt
       intel-media-driver
@@ -77,6 +78,10 @@
     ];
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+  boot.initrd.kernelModules = [ "i915" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  services.xserver.videoDrivers = ["i915"];
+  services.thermald.enable = true;
 
   # Firmware updates
   services.fwupd.enable = true;
@@ -121,13 +126,16 @@
   services.tlp = {
     enable = true;
     settings = {
+      PLATFORM_PROFILE_ON_AC = "performance";
+      PLATFORM_PROFILE_ON_BAT = "quiet";
+
       CPU_DRIVER_OPMODE_ON_AC = "active";
       CPU_DRIVER_OPMODE_ON_BAT = "active";
 
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
       CPU_MIN_PERF_ON_AC = 0;
@@ -145,6 +153,11 @@
       STOP_CHARGE_THRESH_BAT0 = 60;
 
       RESTORE_THRESHOLDS_ON_BAT = 1;
+
+      DISK_DEVICES = "nvme0n1";
+      DISK_APM_LEVEL_ON_AC = "254";
+      DISK_APM_LEVEL_ON_BAT = "254";
+      DISK_IOSCHED = "none";
     };
   };
 
