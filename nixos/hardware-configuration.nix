@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" "aesni_intel" "cryptd"];  # From https://nixos.wiki/wiki/Full_Disk_Encryption#zimbatm.27s_laptop_recommendation
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -19,6 +19,7 @@
     };
 
   boot.initrd.luks.devices."luks-a1d3266d-daa2-460e-b273-ffa321432083".device = "/dev/disk/by-uuid/a1d3266d-daa2-460e-b273-ffa321432083";
+  boot.initrd.luks.devices."luks-a1d3266d-daa2-460e-b273-ffa321432083".allowDiscards = true;
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/51D4-C71A";
