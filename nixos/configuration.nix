@@ -101,8 +101,12 @@
   # Boot and kernel
   # ==========================================================================
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # Bootloader with Secure Boot
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Plymouth
@@ -200,6 +204,7 @@
     htop
     iotop-c
     intel-gpu-tools
+    sbctl
   ];
 
   # Fonts

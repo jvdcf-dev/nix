@@ -17,6 +17,8 @@
     stylix.url = "github:danth/stylix?ref=release-24.11";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -38,6 +40,7 @@
             ./nixos/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
+            inputs.lanzaboote.nixosModules.lanzaboote
           ];
         };
       };
