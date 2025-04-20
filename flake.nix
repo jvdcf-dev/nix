@@ -12,6 +12,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=release-24.11";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+    pipewire-screenaudio.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix?ref=release-24.11";
