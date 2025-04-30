@@ -10,6 +10,7 @@
     ./zsh
     ./ohmyposh
     ./ghostty
+    ./helix
   ];
 
 }

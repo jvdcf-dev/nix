@@ -60,6 +60,8 @@
     vlc
     gnome-software
     fragments              # Torrent client
+    zed-editor
+    moonlight-qt
   ] ++ (with pkgs-stable; [
     bottles
     anytype
