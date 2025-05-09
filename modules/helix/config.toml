@@ -2,6 +2,8 @@ theme = "catppuccin_frappe"
 
 [editor]
 bufferline = "multiple"
+line-number = "relative"
+rulers = [80]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,5 +14,16 @@ select = "underline"
 display-inlay-hints = true
 display-messages = true
 
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+
 [editor.inline-diagnostics]
-cursor-line = "error"
+cursor-line = "warning"
+other-lines = "disable"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
