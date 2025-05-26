@@ -82,7 +82,6 @@
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   services.xserver.videoDrivers = ["i915"];
-  services.thermald.enable = true;
 
   # Firmware updates
   services.fwupd.enable = true;
@@ -180,6 +179,9 @@
     enableSystemSlice = true;
     enableUserSlices = true;
   };
+
+  # Prevent overheating (only for Intel CPUs)
+  services.thermald.enable = true;
 
   # System packages
   # ==========================================================================

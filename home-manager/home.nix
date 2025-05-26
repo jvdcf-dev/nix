@@ -62,6 +62,7 @@
     fragments              # Torrent client
     zed-editor
     moonlight-qt
+    lazygit
   ] ++ (with pkgs-stable; [
     bottles
     anytype
