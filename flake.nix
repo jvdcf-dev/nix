@@ -20,10 +20,12 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    { nixpkgs, nixpkgs-stable, pipewire-screenaudio,... }@inputs:
+    { nixpkgs, nixpkgs-stable, pipewire-screenaudio, aagl,... }@inputs:
     let
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
@@ -36,6 +38,7 @@
             inherit system;
             inherit pkgs-stable;
             inherit pipewire-screenaudio;
+            inherit aagl;
           };
           modules = [
             ./nixos/configuration.nix

@@ -9,11 +9,13 @@
   pipewire-screenaudio,
   inputs,
   lib,
+  aagl,
   ...
 }:
 {
   imports = [
     ./hardware-configuration.nix
+    aagl.nixosModules.default
   ];
 
   # Nix Settings
@@ -144,9 +146,6 @@
       CPU_DRIVER_OPMODE_ON_AC = "active";
       CPU_DRIVER_OPMODE_ON_BAT = "active";
 
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
@@ -160,6 +159,16 @@
 
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
+
+      RUNTIME_PM_ON_AC = "auto";
+      RUNTIME_PM_ON_BAT = "auto";
+
+      INTEL_GPU_MIN_FREQ_ON_AC = 800;
+      INTEL_GPU_MIN_FREQ_ON_BAT = 800;
+      INTEL_GPU_MAX_FREQ_ON_AC = 2200;
+      INTEL_GPU_MAX_FREQ_ON_BAT = 1100;
+      INTEL_GPU_BOOST_FREQ_ON_AC = 2200;
+      INTEL_GPU_BOOST_FREQ_ON_BAT = 1100;
 
       START_CHARGE_THRESH_BAT0 = 0;
       STOP_CHARGE_THRESH_BAT0 = 75;
@@ -179,9 +188,6 @@
     enableSystemSlice = true;
     enableUserSlices = true;
   };
-
-  # Prevent overheating (only for Intel CPUs)
-  services.thermald.enable = true;
 
   # System packages
   # ==========================================================================
@@ -232,7 +238,7 @@
     setSocketVariable = true;
   };
 
-  # Steam
+  # Steam and games
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -240,6 +246,7 @@
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
   };
+  programs.anime-game-launcher.enable = true;
 
   # KDE Connect
   programs.kdeconnect.enable = true;
