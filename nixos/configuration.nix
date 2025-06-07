@@ -244,9 +244,9 @@
   # KDE Connect
   programs.kdeconnect.enable = true;
 
-  # VirtualBox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "jvdcf" ];
+  # VirtualBox: Deactivated due to a Linux 6.15 kernel bug
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.member = [ "jvdcf" ];
 
   # Tailscale VPN
   services.tailscale.enable = true;
