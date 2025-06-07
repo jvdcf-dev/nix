@@ -74,7 +74,8 @@ alias ls='ls --color'
 
 # Autostart programs
 # =========================================================================
-fastfetch --config $HOME/.config/fastfetch/config.jsonc
+# None yet
 
 # Paths 
 # =========================================================================
+# None yet

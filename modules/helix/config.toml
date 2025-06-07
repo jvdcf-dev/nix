@@ -27,3 +27,6 @@ enable = true
 [editor.auto-save]
 focus-lost = true
 after-delay.enable = true
+
+[editor.file-picker]
+hidden = false

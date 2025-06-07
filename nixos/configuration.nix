@@ -218,8 +218,12 @@
     texlivePackages.comfortaa
   ];
 
-  # Zsh shell
+  # Shells
   programs.zsh.enable = true;
+  environment.shells = with pkgs; [
+    zsh
+    dash
+];
 
   # Docker
   virtualisation.docker.enable = true;
@@ -298,6 +302,9 @@
   # Users
   # ==========================================================================
 
+  users.defaultUserShell = pkgs.dash;
+  users.users.root.shell = pkgs.dash;
+
   # My account
   users.users.jvdcf = {
     isNormalUser = true;
@@ -308,7 +315,7 @@
       "docker"
       "adbusers"
     ];
-    shell = pkgs.zsh;
+    useDefaultShell = true;
   };
 
   # Home Manager
