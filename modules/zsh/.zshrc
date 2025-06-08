@@ -70,7 +70,13 @@ zinit snippet OMZP::command-not-found
 
 # Aliases 
 # =========================================================================
-alias ls='ls --color'
+alias ls='eza'
+alias cat='bat'
+alias ps='procs'
+alias du='dust'
+alias tldr='tealdeer'
+alias btm='btm --battery --enable_gpu'
+alias nix-dev='nix develop path:. --command steam-run code .'
 
 # Autostart programs
 # =========================================================================

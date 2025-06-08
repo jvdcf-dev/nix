@@ -4,9 +4,12 @@
 # @jvdcf
 # Dotfiles, applications and envs for only my user are defined here.
 
-{ pkgs, pkgs-stable, pipewire-screenaudio, lib, inputs, ... }:
+{ pkgs, pkgs-stable, lib, inputs, ... }:
 
 {
+  imports = [
+    ../modules  # Dotfiles and respective apps are inside /modules
+  ];
 
   # Home Manager
   # ==========================================================================
@@ -17,23 +20,46 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Enable unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-
   # Applications
   # ==========================================================================
 
-  imports = [
-    ../modules  # Dotfiles and respective apps are inside modules/
-  ];
-
   home.packages = with pkgs; [
-    btop
+    # Terminal
+    bottom
+    neovim
+    steam-run
+    lazygit
+    rlwrap
+    bat
+    eza
+    procs
+    dust
+    tokei
+    hyperfine
+    tealdeer
+
+    # Programming
     vscode
+    direnv
+    nixd
+    nixfmt-rfc-style
+    texlive.combined.scheme-full  # LaTeX support
+    zed-editor
+
+    # KDE Addons
+    kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
+    vscode-runner          # VSCode workspaces in KDE Runner
+
+    # Fonts
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+    texlivePackages.nunito
+    texlivePackages.comfortaa
+
     nextcloud-client
     (firefox.override { nativeMessagingHosts = [ 
-      pipewire-screenaudio.packages.${pkgs.system}.default 
+      inputs.pipewire-screenaudio.packages.${pkgs.system}.default 
     ]; })
     gnome-calendar
     gnome-clocks
@@ -41,35 +67,26 @@
     papers # Gnome document viewer
     nautilus
     libreoffice
-    neovim
     parsec-bin
-    webcord
+    discord
     wine
     youtube-music
-    direnv
     jetbrains-toolbox
-    steam-run
-    rlwrap
-    nixd
-    nixfmt-rfc-style
-    texlive.combined.scheme-full  # LaTeX support
-    kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
     kde-rounded-corners
     kdePackages.plasma-browser-integration
-    vscode-runner          # VSCode workspaces in KDE Runner
     vlc
     gnome-software
     fragments              # Torrent client
-    zed-editor
     moonlight-qt
-    lazygit
-  ] ++ (with pkgs-stable; [
     bottles
     anytype
+  ] ++ (with pkgs-stable; [
+    # Place here apps that are broken in unstable
   ]) ++ [
     inputs.zen-browser.packages."${system}".beta
   ];
 
+  fonts.fontconfig.enable = true;
 
   # Remove Home Manager backups
   # ==========================================================================

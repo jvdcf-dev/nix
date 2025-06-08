@@ -6,16 +6,13 @@
 {
   pkgs,
   pkgs-stable,
-  pipewire-screenaudio,
   inputs,
   lib,
-  aagl,
   ...
 }:
 {
   imports = [
     ./hardware-configuration.nix
-    aagl.nixosModules.default
   ];
 
   # Nix Settings
@@ -83,7 +80,7 @@
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
-  services.xserver.videoDrivers = ["i915"];
+  services.xserver.videoDrivers = [ "i915" ];
 
   # Firmware updates
   services.fwupd.enable = true;
@@ -215,21 +212,12 @@
     sbctl
   ];
 
-  # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
-    nerd-fonts.jetbrains-mono
-    texlivePackages.nunito
-    texlivePackages.comfortaa
-  ];
-
   # Shells
   programs.zsh.enable = true;
   environment.shells = with pkgs; [
     zsh
     dash
-];
+  ];
 
   # Docker
   virtualisation.docker.enable = true;
@@ -238,7 +226,7 @@
     setSocketVariable = true;
   };
 
-  # Steam and games
+  # Steam and "system" games
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -330,13 +318,12 @@
     extraSpecialArgs = {
       inherit inputs;
       inherit pkgs-stable;
-      inherit pipewire-screenaudio;
     };
     users = {
       "jvdcf" = import ../home-manager/home.nix;
     };
     useUserPackages = true;
-    useGlobalPkgs = true;   # E.g. enable unfree packages
+    useGlobalPkgs = true; # E.g. enable unfree packages
     backupFileExtension = "backup";
   };
 
@@ -356,7 +343,7 @@
     "network-online.target"
   ];
 
-  # Theming
+  # System Theming
   # ==========================================================================
 
   stylix = {

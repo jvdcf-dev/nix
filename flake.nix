@@ -25,7 +25,7 @@
   };
 
   outputs =
-    { nixpkgs, nixpkgs-stable, pipewire-screenaudio, aagl,... }@inputs:
+    { nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
@@ -37,14 +37,14 @@
             inherit inputs;
             inherit system;
             inherit pkgs-stable;
-            inherit pipewire-screenaudio;
-            inherit aagl;
+            inherit home-manager;
           };
           modules = [
-            ./nixos/configuration.nix
-            inputs.home-manager.nixosModules.default
+            home-manager.nixosModules.default
+            inputs.aagl.nixosModules.default
             inputs.stylix.nixosModules.stylix
             inputs.lanzaboote.nixosModules.lanzaboote
+            ./nixos/configuration.nix
           ];
         };
       };
