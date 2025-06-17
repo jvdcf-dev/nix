@@ -212,6 +212,15 @@
     sbctl
   ];
 
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+    texlivePackages.nunito
+    texlivePackages.comfortaa
+  ];
+
   # Shells
   programs.zsh.enable = true;
   environment.shells = with pkgs; [
@@ -284,6 +293,9 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  # Hyprland
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

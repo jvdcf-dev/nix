@@ -11,6 +11,7 @@
     ./ohmyposh
     ./ghostty
     ./helix
+    ./hyprland
   ];
 
 }

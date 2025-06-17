@@ -50,13 +50,6 @@
     kdePackages.qtmultimedia      # Fokus widget (for pomodoro timer)
     vscode-runner          # VSCode workspaces in KDE Runner
 
-    # Fonts
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
-    nerd-fonts.jetbrains-mono
-    texlivePackages.nunito
-    texlivePackages.comfortaa
-
     nextcloud-client
     (firefox.override { nativeMessagingHosts = [ 
       inputs.pipewire-screenaudio.packages.${pkgs.system}.default 
@@ -85,8 +78,6 @@
   ]) ++ [
     inputs.zen-browser.packages."${system}".beta
   ];
-
-  fonts.fontconfig.enable = true;
 
   # Remove Home Manager backups
   # ==========================================================================
