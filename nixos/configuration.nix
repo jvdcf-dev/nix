@@ -208,8 +208,15 @@
     smartmontools
     htop
     iotop-c
-    intel-gpu-tools
     sbctl
+
+    # GPU related (see https://www.binarytides.com/check-intel-igpu-details-on-ubuntu/)
+    inxi
+    pciutils
+    toybox
+    virtualglLib
+    lshw
+    intel-gpu-tools
   ];
 
   # Fonts
