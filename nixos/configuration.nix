@@ -96,6 +96,13 @@
   '';
   services.fstrim.enable = true;
 
+  # Brightness and ambient sensor
+  services.clight.enable = true;
+
+  # Location: Portugal
+  location.latitude = 41.0;
+  location.longitude = -8.0;
+
   # Boot and kernel
   # ==========================================================================
 
@@ -209,6 +216,7 @@
     htop
     iotop-c
     sbctl
+    clight-gui
 
     # GPU related (see https://www.binarytides.com/check-intel-igpu-details-on-ubuntu/)
     inxi
