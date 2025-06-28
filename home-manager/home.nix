@@ -73,6 +73,7 @@
     moonlight-qt
     bottles
     anytype
+    obs-studio
   ] ++ (with pkgs-stable; [
     # Place here apps that are broken in unstable
   ]) ++ [
