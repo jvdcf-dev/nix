@@ -250,6 +250,15 @@
     setSocketVariable = true;
   };
 
+  # Virt-manager
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["jvdcf"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  # VirtualBox
+  virtualisation.virtualbox.host.enable = true;
+
   # Steam and "system" games
   programs.steam = {
     enable = true;
@@ -262,10 +271,6 @@
 
   # KDE Connect
   programs.kdeconnect.enable = true;
-
-  # VirtualBox: Deactivated due to a Linux 6.15 kernel bug
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.member = [ "jvdcf" ];
 
   # Tailscale VPN
   services.tailscale.enable = true;
@@ -336,6 +341,7 @@
       "wheel"
       "docker"
       "adbusers"
+      "vboxusers"
     ];
     useDefaultShell = true;
   };
