@@ -417,6 +417,9 @@
   # Make OpenCL detectable by applications
   environment.variables.OCL_ICD_VENDORS = "${pkgs.intel-ocl}/etc/OpenCL/vendors/intel.icd";
 
+  # Zsh completion for system packages
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # ==========================================================================
 
   # This value determines the NixOS release from which the default

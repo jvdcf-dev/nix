@@ -6,12 +6,12 @@
 
   imports = [
     ./fastfetch
-    ./kitty
-    ./zsh
-    ./ohmyposh
     ./ghostty
     ./helix
     ./hyprland
+    ./kitty
+    ./ohmyposh
+    ./zsh
   ];
 
 }
