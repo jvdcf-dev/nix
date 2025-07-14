@@ -37,6 +37,7 @@
     tokei
     hyperfine
     tealdeer
+    libnotify
 
     # Programming
     vscode
@@ -74,6 +75,7 @@
     bottles
     anytype
     obs-studio
+    thunderbird
   ] ++ (with pkgs-stable; [
     # Place here apps that are broken in unstable
   ]) ++ [
