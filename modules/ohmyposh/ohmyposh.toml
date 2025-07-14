@@ -2,78 +2,92 @@ version = 3
 final_space = true
 
 [secondary_prompt]
-  template = '>> '
-  foreground = 'green'
-  background = 'transparent'
+template = '>> '
+foreground = 'green'
+background = 'transparent'
 
 [transient_prompt]
-  template = '> '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
+template = '> '
+background = 'transparent'
+foreground_templates = [
+  '{{if gt .Code 0}}red{{end}}',
+  '{{if eq .Code 0}}green{{end}}',
+]
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    leading_diamond = ''
-    template = '{{ .Icon }} '
-    foreground = 'black'
-    background = 'blue'
-    type = 'os'
-    style = 'diamond'
+[[blocks.segments]]
+type = 'os'
+style = 'diamond'
+leading_diamond = ''
+template = '{{ .Icon }} {{ if .Env.IN_NIX_SHELL }} {{ end }}'
+foreground = 'black'
+background = 'blue'
+background_templates = [
+  '{{ if .Env.IN_NIX_SHELL }}green{{ end }}'
+]
 
-  [[blocks.segments]]
-    template = '  {{ .Path }} '
-    foreground = 'white'
-    powerline_symbol = ''
-    background = 'black'
-    type = 'path'
-    style = 'powerline'
+[[blocks.segments]]
+type = 'path'
+template = '  {{ .Path }} '
+foreground = 'white'
+powerline_symbol = ''
+background = 'black'
+style = 'powerline'
 
-    [blocks.segments.properties]
-      style = 'agnoster_short'
+[blocks.segments.properties]
+style = 'agnoster_short'
 
-  [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}'
-    foreground = 'black'
-    powerline_symbol = ''
-    background = 'green'
-    type = 'git'
-    style = 'powerline'
-    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}red{{ end }}', '{{ if gt .Ahead 0 }}red{{ end }}', '{{ if gt .Behind 0 }}red{{ end }}']
+[[blocks.segments]]
+template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}'
+foreground = 'black'
+powerline_symbol = ''
+background = 'green'
+type = 'git'
+style = 'powerline'
+background_templates = [
+  '{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}',
+  '{{ if and (gt .Ahead 0) (gt .Behind 0) }}red{{ end }}',
+  '{{ if gt .Ahead 0 }}red{{ end }}',
+  '{{ if gt .Behind 0 }}red{{ end }}',
+]
 
-    [blocks.segments.properties]
-      branch_icon = ' '
-      cherry_pisk_icon = ' '
-      commit_icon = ' '
-      fetch_status = true
-      merge_icon = ' '
-      no_commits_icon = ' '
-      rebase_icon = ' '
-      revert_icon = ' '
-      tag_icon = ' '
+[blocks.segments.properties]
+branch_icon = ' '
+cherry_pisk_icon = ' '
+commit_icon = ' '
+fetch_status = true
+merge_icon = ' '
+no_commits_icon = ' '
+rebase_icon = ' '
+revert_icon = ' '
+tag_icon = ' '
 
-  [[blocks.segments]]
-    template = ' ⧗ {{ .FormattedMs }} '
-    foreground = 'black'
-    powerline_symbol = ''
-    background = 'cyan'
-    type = 'executiontime'
-    style = 'powerline'
+[[blocks.segments]]
+template = ' ⧗ {{ .FormattedMs }} '
+foreground = 'black'
+powerline_symbol = ''
+background = 'cyan'
+type = 'executiontime'
+style = 'powerline'
 
-    [blocks.segments.properties]
-      threshold = 500
+[blocks.segments.properties]
+threshold = 500
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '>'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
+[[blocks.segments]]
+template = '>'
+background = 'transparent'
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  '{{if gt .Code 0}}red{{end}}',
+  '{{if eq .Code 0}}green{{end}}',
+]
