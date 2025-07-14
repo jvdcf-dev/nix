@@ -9,7 +9,25 @@
 LANGUAGE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 LC_CTYPE=C.UTF-8
-LANG=en_US.UTF-8 
+LANG=en_US.UTF-8
+
+# Aliases 
+# =========================================================================
+alias ls='eza'
+alias cat='bat'
+alias ps='procs'
+alias du='dust'
+alias tldr='tealdeer'
+alias btm='btm --battery --enable_gpu'
+alias nix-dev='nix develop path:. --command steam-run code .'
+
+# Autostart programs
+# =========================================================================
+# None yet
+
+# Paths 
+# =========================================================================
+# None yet
 
 # Zinit
 # =========================================================================
@@ -21,10 +39,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Oh My Posh 
 # =========================================================================
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
-
-# Zsh Syntax Highlighting
-# =========================================================================
-zinit light zsh-users/zsh-syntax-highlighting
 
 # Zsh Completion
 # =========================================================================
@@ -65,23 +79,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # =========================================================================
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+zinit snippet OMZP::direnv
 zinit snippet OMZP::command-not-found
 
-# Aliases 
+# Zsh Syntax Highlighting (should be last!)
 # =========================================================================
-alias ls='eza'
-alias cat='bat'
-alias ps='procs'
-alias du='dust'
-alias tldr='tealdeer'
-alias btm='btm --battery --enable_gpu'
-alias nix-dev='nix develop path:. --command steam-run code .'
-
-# Autostart programs
-# =========================================================================
-# None yet
-
-# Paths 
-# =========================================================================
-# None yet
+zinit light zsh-users/zsh-syntax-highlighting
