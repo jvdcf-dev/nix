@@ -1,3 +1,9 @@
+# ─────────────────────────╮
+# Oh My Posh configuration │
+# ─────────────────────────╯
+# @jvdcf
+# Inspired from Dreams of Autonomy (https://www.youtube.com/watch?v=9U8LCjuQzdc)
+
 version = 3
 final_space = true
 

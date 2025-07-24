@@ -96,9 +96,6 @@
   '';
   services.fstrim.enable = true;
 
-  # Brightness and ambient sensor
-  services.clight.enable = true;
-
   # Location: Portugal
   location.latitude = 41.0;
   location.longitude = -8.0;
@@ -252,7 +249,7 @@
 
   # Virt-manager
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["jvdcf"];
+  users.groups.libvirtd.members = [ "jvdcf" ];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
@@ -339,7 +336,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
       "adbusers"
       "vboxusers"
     ];
@@ -353,7 +349,7 @@
       inherit pkgs-stable;
     };
     users = {
-      "jvdcf" = import ../home-manager/home.nix;
+      "jvdcf" = import ./home.nix;
     };
     useUserPackages = true;
     useGlobalPkgs = true; # E.g. enable unfree packages
@@ -382,7 +378,7 @@
   stylix = {
     enable = true;
     targets.plymouth.enable = false;
-    image = ../modules/background.jpg;
+    image = ../home-modules/background.jpg;
     polarity = "dark";
     base16Scheme = {
       # Catppuccin Frappe Theme
@@ -419,6 +415,10 @@
 
   # Zsh completion for system packages
   environment.pathsToLink = [ "/share/zsh" ];
+
+  # Allows the power button to be mapped into any action, instead of shutting
+  # down the system
+  services.logind.powerKey = "ignore";
 
   # ==========================================================================
 

@@ -24,6 +24,8 @@
     blueberry
     pavucontrol
     networkmanagerapplet
+    xdg-desktop-portal-wlr
+    nwg-displays
   ];
 
   home.file.".config/hypr/frappe.conf".source = ./frappe.conf;

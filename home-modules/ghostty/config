@@ -1,4 +1,4 @@
-# ───────────────────────────────╮ 
+# ───────────────────────────────╮
 # Ghostty terminal configuration │
 # ───────────────────────────────╯
 # @jvdcf
@@ -8,8 +8,8 @@ font-size = 12
 adjust-cell-height = 10%
 window-padding-x = 15
 window-padding-y = 15
-window-decoration = server
 theme = "catppuccin-frappe"
 initial-command = "sleep 0.03 && fastfetch --config $HOME/.config/fastfetch/config.jsonc && zsh"
 window-width = 100
 window-height = 10
+confirm-close-surface = false

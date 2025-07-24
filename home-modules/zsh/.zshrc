@@ -1,4 +1,4 @@
-# ──────────────────╮ 
+# ──────────────────╮
 # Zsh configuration │
 # ──────────────────╯
 # @jvdcf
@@ -11,7 +11,7 @@ LC_ALL=en_US.UTF-8
 LC_CTYPE=C.UTF-8
 LANG=en_US.UTF-8
 
-# Aliases 
+# Aliases
 # =========================================================================
 alias ls='eza'
 alias cat='bat'
@@ -19,13 +19,13 @@ alias ps='procs'
 alias du='dust'
 alias tldr='tealdeer'
 alias btm='btm --battery --enable_gpu'
-alias nix-dev='nix develop path:. --command steam-run code .'
+alias nix-dev='nix develop path:. --command steam-run zeditor .'
 
 # Autostart programs
 # =========================================================================
 # None yet
 
-# Paths 
+# Paths
 # =========================================================================
 # None yet
 
@@ -36,7 +36,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Oh My Posh 
+# Oh My Posh
 # =========================================================================
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
 
@@ -75,7 +75,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 eval "$(zoxide init --cmd cd zsh)"
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Oh My Zsh Plugins 
+# Oh My Zsh Plugins
 # =========================================================================
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
