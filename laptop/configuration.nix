@@ -281,6 +281,14 @@
   # ADB for connection with Android devices
   programs.adb.enable = true;
 
+  # Streaming with Moonlight
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+
   # Time zone and locale
   # ==========================================================================
 
