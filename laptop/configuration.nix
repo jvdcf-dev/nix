@@ -202,6 +202,7 @@
     nh
     git
     kdePackages.xwaylandvideobridge
+    wayland-utils
 
     # Smart card utilities
     pcsclite

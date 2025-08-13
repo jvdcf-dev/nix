@@ -73,12 +73,21 @@
       vscode-runner # VSCode workspaces in KDE Runner
       kde-rounded-corners
 
+      # KDE default apps
+      kdePackages.discover
+      kdePackages.merkuro
+      kdePackages.korganizer
+      kdePackages.kcontacts
+      kdePackages.kcalc
+      kdePackages.okular
+      kdePackages.ktorrent
+      kdePackages.kcolorchooser
+      kdePackages.ksystemlog
+      kdePackages.isoimagewriter
+      kdePackages.filelight
+      haruna
+
       nextcloud-client
-      gnome-calendar
-      gnome-clocks
-      gnome-calculator
-      papers # Gnome document viewer
-      nautilus
       libreoffice
       parsec-bin
       discord
@@ -86,13 +95,11 @@
       youtube-music
       jetbrains-toolbox
       vlc
-      gnome-software
-      fragments # Torrent client
       moonlight-qt
       bottles
-      anytype
       obs-studio
       thunderbird
+      ktailctl
     ]
     ++ (with pkgs-stable; [
       # Place here apps that are broken in unstable
