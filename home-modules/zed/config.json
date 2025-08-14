@@ -48,6 +48,9 @@
   "ensure_final_newline_on_save": true,
   "remove_trailing_whitespace_on_save": true,
   "format_on_save": "off",
+  "inlay_hints": {
+    "enabled": true
+  },
 
   // Keymaps
   "base_keymap": "VSCode",
