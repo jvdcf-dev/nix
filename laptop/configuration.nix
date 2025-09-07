@@ -276,7 +276,7 @@
   # Flatpak
   services.flatpak.enable = true;
 
-  # Smart card
+  # Smart card (also used in gpg)
   services.pcscd.enable = true;
 
   # ADB for connection with Android devices
@@ -288,6 +288,12 @@
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
+  };
+
+  # GnuPG
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # Time zone and locale
@@ -387,6 +393,7 @@
   stylix = {
     enable = true;
     targets.plymouth.enable = false;
+    targets.qt.platform = lib.mkForce "kde";  # Bugfix for the bug https://github.com/nix-community/stylix/issues/1865
     image = ../home-modules/background.jpg;
     polarity = "dark";
     base16Scheme = {
