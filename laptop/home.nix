@@ -85,6 +85,7 @@
       kdePackages.ksystemlog
       kdePackages.isoimagewriter
       kdePackages.filelight
+      kdePackages.kclock
       haruna
 
       nextcloud-client
