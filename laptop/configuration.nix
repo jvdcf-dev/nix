@@ -434,7 +434,7 @@
 
   # Allows the power button to be mapped into any action, instead of shutting
   # down the system
-  services.logind.powerKey = "ignore";
+  services.logind.settings.Login.HandlePowerKey = "ignore";
 
   # ==========================================================================
 
